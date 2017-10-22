@@ -29,12 +29,21 @@ namespace VirtualAbstractMachine.VAM
             Reset();
         }
 
-        public void Run()
+        public bool Run()
         {
             for (int i = 0; i < _instructions.Count; i++)
             {
-                _instructions[i].Execute(_stack);
+                try
+                {
+                    _instructions[i].Execute(_stack);
+
+                }
+                catch
+                {
+                    return false;
+                }
             }
+            return true;
         }
 
         public bool Step()
@@ -50,6 +59,7 @@ namespace VirtualAbstractMachine.VAM
 
         public void Reset()
         {
+            _stack.Reset();
             _instructionIndex = 0;
         }
 

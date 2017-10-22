@@ -44,5 +44,10 @@ namespace VirtualAbstractMachine.VAM
             _stack.CopyTo(copy);
             return copy;
         }
+
+        public void Reset()
+        {
+            _stack.Clear();
+        }
     }
 }

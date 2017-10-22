@@ -4,15 +4,30 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:VirtualAbstractMachineEditor.Views"
+        xmlns:local="clr-namespace:VirtualAbstractMachineEditor"
+        xmlns:viewModels="clr-namespace:VirtualAbstractMachineEditor.ViewModels"
         mc:Ignorable="d"
         Title="VAME" Height="350" Width="525">
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModels:StackViewModel}">
+            <views:StackView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:EditorViewModel}">
+            <views:EditorView />
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="5"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+
+        <ContentControl Content="{Binding EditorViewModel}" Grid.Column="0" Margin="5"/>
         <GridSplitter HorizontalAlignment="Stretch" Grid.Column="1"/>
-        <views:EditorView Grid.Column="0"/>
+        <ContentControl Content="{Binding StackViewModel}" Grid.Column="2" Margin="5"/>
     </Grid>
 </Window>

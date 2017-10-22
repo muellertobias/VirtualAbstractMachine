@@ -54,9 +54,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MainViewModel.cs" />
     <Compile Include="Utilities\Command.cs" />
     <Compile Include="Utilities\ViewModelBase.cs" />
     <Compile Include="ViewModels\EditorViewModel.cs" />
+    <Compile Include="ViewModels\INotifyOnInstructionsFinished.cs" />
     <Compile Include="ViewModels\StackViewModel.cs" />
     <Compile Include="Views\EditorView.xaml.cs">
       <DependentUpon>EditorView.xaml</DependentUpon>

@@ -26,7 +26,8 @@ namespace VirtualAbstractMachine.Utilities
             foreach (string line in _instructionLines)
             {
                 string[] tokens = line.Split(' ');
-                var type = InstructionSet[tokens.First()];
+                string key = tokens.First().Replace("\r", "").Replace("\n", "");
+                var type = InstructionSet[key];
                 string[] args = null;
                 if (tokens.Length > 1)
                 {

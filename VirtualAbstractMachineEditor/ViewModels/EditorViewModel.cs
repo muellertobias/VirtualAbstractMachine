@@ -10,8 +10,10 @@ using VirtualAbstractMachineEditor.Utilities;
 
 namespace VirtualAbstractMachineEditor.ViewModels
 {
-    public class EditorViewModel : ViewModelBase
+    public class EditorViewModel : ViewModelBase, INotifyOnInstructionsFinished
     {
+        public event InstructionsFinishedEventHandler InstructionsFinished;
+
         private VirtualMachine machine;
         private StringInstructionLoader instructionLoader;
 
@@ -31,23 +33,39 @@ namespace VirtualAbstractMachineEditor.ViewModels
         public ICommand StepCommand { get; private set; }
         public ICommand ResetCommand { get; private set; }
 
-        public EditorViewModel()
+        public EditorViewModel() 
+            : this(null) { }
+
+        public EditorViewModel(VirtualMachine machine)
         {
-            machine = new VirtualMachine();
+            this.machine = machine;
             instructionLoader = new StringInstructionLoader();
-            RunCommand = new Command(o => _run(), o => _validate());
+            RunCommand = new Command(_ => _run(), _ => _validate());
+            StepCommand = new Command(_ => _step(), _ => _validate());
+            ResetCommand = new Command(_ => machine.Reset());
         }
 
         private void _run()
         {
             var instuctions = instructionLoader.Load(Text);
             machine.Setup(instuctions);
-            machine.Run();
+            bool successful = machine.Run();
+            OnInstructionsFinished(successful, machine.GetStackContent());
+        }
+
+        private void _step()
+        {
+            
         }
 
         private bool _validate()
         {
             return true;
+        }
+
+        protected void OnInstructionsFinished(bool successfully, IReadOnlyList<string> stackContent)
+        {
+            InstructionsFinished?.Invoke(this, new InstructionsFinishedEventArgs(successfully, stackContent));
         }
     }
 }
