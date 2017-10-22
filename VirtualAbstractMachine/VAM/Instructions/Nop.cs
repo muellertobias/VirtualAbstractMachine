@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace VirtualAbstractMachine.VAM.Instructions
 {
-    public class Add : IInstruction
+    public class Nop : IInstruction
     {
         public void Execute(Stack stack)
         {
-            var a = stack.Pop();
-            var b = stack.Pop();
-            stack.Push(a + b);
+            // nothing to do here!
         }
     }
 }

@@ -53,9 +53,11 @@
     <Compile Include="VAM\Instructions\InstructionList.cs" />
     <Compile Include="VAM\Instructions\Loadc.cs" />
     <Compile Include="VAM\Instructions\Mul.cs" />
+    <Compile Include="VAM\Instructions\Neg.cs" />
+    <Compile Include="VAM\Instructions\Nop.cs" />
     <Compile Include="VAM\Instructions\Store.cs" />
     <Compile Include="VAM\Instructions\Sub.cs" />
-    <Compile Include="VAM\Machine.cs" />
+    <Compile Include="VAM\VirtualMachine.cs" />
     <Compile Include="VAM\Stack.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -9,13 +9,24 @@ namespace VirtualAbstractMachine.VAM
 {
     public class VirtualMachine
     {
+        private int _instructionIndex;
         private InstructionList _instructions;
         private Stack _stack;
+
+        public VirtualMachine() 
+            : this(new InstructionList() { }) { }
 
         public VirtualMachine(InstructionList instructions)
         {
             _instructions = instructions ?? throw new ArgumentNullException("instructions");
             _stack = new Stack();
+            _instructionIndex = 0;
+        }
+
+        public void Setup(InstructionList instructions)
+        {
+            _instructions = instructions;
+            Reset();
         }
 
         public void Run()
@@ -28,7 +39,18 @@ namespace VirtualAbstractMachine.VAM
 
         public bool Step()
         {
+            if (_instructionIndex < _instructions.Count)
+            {
+                _instructions[_instructionIndex].Execute(_stack);
+                _instructionIndex++;
+                return true;
+            }
+            return false;
+        }
 
+        public void Reset()
+        {
+            _instructionIndex = 0;
         }
 
         public List<string> GetStackContent()

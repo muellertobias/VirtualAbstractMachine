@@ -22,9 +22,12 @@ namespace VirtualAbstractMachine.Utilities
                 { "mul", typeof(Mul) },
                 { "store", typeof(Store) },
                 { "sub", typeof(Sub) },
-                { "neg", typeof(Neg) }
+                { "neg", typeof(Neg) },
+                { "nop", typeof(Nop) }
             };
         }
         public abstract InstructionList Load();
+        public abstract InstructionList Load(string source);
+
     }
 }

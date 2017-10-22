@@ -11,6 +11,9 @@ namespace VirtualAbstractMachine.Utilities
     {
         private List<string> _instructionLines;
 
+        public StringInstructionLoader()
+            : this(new List<string>()) { }
+
         public StringInstructionLoader(List<string> instructionLines)
         {
             _instructionLines = instructionLines;
@@ -33,6 +36,12 @@ namespace VirtualAbstractMachine.Utilities
             }
 
             return instructions;
+        }
+
+        public override InstructionList Load(string source)
+        {
+            _instructionLines = source.Split('\n').ToList();
+            return Load();
         }
     }
 }

@@ -11,6 +11,10 @@ namespace VirtualAbstractMachine.Utilities
     public class FileInstructionLoader : AbstractInstructionLoader
     {
         private string _filename;
+
+        public FileInstructionLoader() 
+            : this(string.Empty) { }
+
         public FileInstructionLoader(string filename)
         {
             _filename = filename;
@@ -37,6 +41,12 @@ namespace VirtualAbstractMachine.Utilities
             }
 
             return new StringInstructionLoader(lines).Load();
+        }
+
+        public override InstructionList Load(string source)
+        {
+            _filename = source;
+            return Load();
         }
     }
 }
