@@ -8,21 +8,24 @@ namespace VirtualAbstractMachine.VAM
 {
     public class Stack
     {
-        private Stack<decimal> _stack;
+        private List<decimal> _stack;
 
         public Stack()
         {
-            _stack = new Stack<decimal>();
+            _stack = new List<decimal>();
         }
 
         public decimal Pop()
         {
-            return _stack.Pop();
+            var value = _stack.Last();
+            _stack.RemoveAt(_stack.Count - 1);
+
+            return value;
         }
 
         public void Push(decimal value)
         {
-            _stack.Push(value);
+            _stack.Add(value);
         }
 
         public bool IsEmpty()
@@ -32,7 +35,14 @@ namespace VirtualAbstractMachine.VAM
 
         public void Insert(int index, decimal value)
         {
-            throw new NotImplementedException("Stack - Insert");
+            _stack.Insert(index, value);
+        }
+
+        public decimal[] AsArray()
+        {
+            var copy = new decimal[_stack.Count];
+            _stack.CopyTo(copy);
+            return copy;
         }
     }
 }

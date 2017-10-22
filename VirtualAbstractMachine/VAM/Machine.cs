@@ -26,12 +26,18 @@ namespace VirtualAbstractMachine.VAM
             }
         }
 
+        public bool Step()
+        {
+
+        }
+
         public List<string> GetStackContent()
         {
             List<string> content = new List<string>();
-            while (!_stack.IsEmpty())
+
+            foreach (var v in _stack.AsArray())
             {
-                content.Add(_stack.Pop().ToString());
+                content.Add(v.ToString());
             }
 
             return content;
