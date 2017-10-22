@@ -25,15 +25,18 @@ namespace VirtualAbstractMachine.Utilities
 
             foreach (string line in _instructionLines)
             {
-                string[] tokens = line.Split(' ');
-                string key = tokens.First().Replace("\r", "").Replace("\n", "");
-                var type = InstructionSet[key];
-                string[] args = null;
-                if (tokens.Length > 1)
+                if (!string.IsNullOrWhiteSpace(line))
                 {
-                    args = tokens.Skip(1).ToArray();
+                    string[] tokens = line.Split(' ');
+                    string key = tokens.First().Replace("\r", "").Replace("\n", "");
+                    var type = InstructionSet[key];
+                    string[] args = null;
+                    if (tokens.Length > 1)
+                    {
+                        args = tokens.Skip(1).ToArray();
+                    }
+                    instructions.Add((IInstruction)Activator.CreateInstance(type, args));
                 }
-                instructions.Add((IInstruction)Activator.CreateInstance(type, args));
             }
 
             return instructions;
