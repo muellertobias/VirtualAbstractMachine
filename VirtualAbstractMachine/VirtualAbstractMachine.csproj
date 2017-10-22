@@ -44,7 +44,9 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities\InstructionLoader.cs" />
+    <Compile Include="Utilities\AbstractInstructionLoader.cs" />
+    <Compile Include="Utilities\FileInstructionLoader.cs" />
+    <Compile Include="Utilities\StringInstructionLoader.cs" />
     <Compile Include="VAM\Instructions\Add.cs" />
     <Compile Include="VAM\Instructions\Div.cs" />
     <Compile Include="VAM\Instructions\IInstruction.cs" />

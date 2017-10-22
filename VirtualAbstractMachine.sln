@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualAbstractMachine", "VirtualAbstractMachine\VirtualAbstractMachine.csproj", "{2BFD41BA-4A2D-4F94-A08F-4E46F061499E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualAbstractMachineEditor", "VirtualAbstractMachineEditor\VirtualAbstractMachineEditor.csproj", "{7A8D8287-829D-4575-A63E-6255939AB264}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2BFD41BA-4A2D-4F94-A08F-4E46F061499E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BFD41BA-4A2D-4F94-A08F-4E46F061499E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BFD41BA-4A2D-4F94-A08F-4E46F061499E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A8D8287-829D-4575-A63E-6255939AB264}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A8D8287-829D-4575-A63E-6255939AB264}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A8D8287-829D-4575-A63E-6255939AB264}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A8D8287-829D-4575-A63E-6255939AB264}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -12,7 +12,7 @@ namespace VirtualAbstractMachine
     {
         static void Main(string[] args)
         {
-            InstructionList Instructions = new InstructionLoader("test.txt").Load();
+            InstructionList Instructions = new FileInstructionLoader("test.txt").Load();
             VirtualMachine VirtualMachine = new VirtualMachine(Instructions);
 
             VirtualMachine.Run();
