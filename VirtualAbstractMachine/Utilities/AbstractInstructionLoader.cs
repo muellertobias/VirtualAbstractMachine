@@ -52,12 +52,13 @@ namespace VirtualAbstractMachine.Utilities
                 { "geq", typeof(GreaterEqual) },
                 { "le", typeof(Less) },
                 { "ge", typeof(Greater) },
+                #endregion
 
                 #region Logics
                 { "and", typeof(And) },
                 { "not", typeof(Not) },
                 { "or", typeof(Or) },
-                { "xor", typeof(Xor) },
+                { "xor", typeof(Xor) }
                 #endregion
             };
         }
