@@ -50,6 +50,16 @@
     <Compile Include="VAM\IContext.cs" />
     <Compile Include="VAM\Instructions\Arithmetics\Add.cs" />
     <Compile Include="VAM\Instructions\Arithmetics\Div.cs" />
+    <Compile Include="VAM\Instructions\Comparsion\Equal.cs" />
+    <Compile Include="VAM\Instructions\Comparsion\Greater.cs" />
+    <Compile Include="VAM\Instructions\Comparsion\GreaterEqual.cs" />
+    <Compile Include="VAM\Instructions\Comparsion\Less.cs" />
+    <Compile Include="VAM\Instructions\Comparsion\LessEqual.cs" />
+    <Compile Include="VAM\Instructions\Comparsion\NotEqual.cs" />
+    <Compile Include="VAM\Instructions\Logics\And.cs" />
+    <Compile Include="VAM\Instructions\Logics\Not.cs" />
+    <Compile Include="VAM\Instructions\Logics\Or.cs" />
+    <Compile Include="VAM\Instructions\Logics\Xor.cs" />
     <Compile Include="VAM\Instructions\Procedures\Dub.cs" />
     <Compile Include="VAM\Instructions\Procedures\Halt.cs" />
     <Compile Include="VAM\Instructions\IInstruction.cs" />
@@ -71,8 +81,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="VAM\Instructions\Logics\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
