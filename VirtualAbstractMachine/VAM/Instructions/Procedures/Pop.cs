@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VirtualAbstractMachine.VAM.Instructions.Storage
+namespace VirtualAbstractMachine.VAM.Instructions.Procedures
 {
-    public class Store : IInstruction
+    public class Pop : IInstruction
     {
         public void Execute(Stack stack, int instructionIndex)
         {
-            int index = (int)stack.Pop();
-            var value = stack.Pop();
-            stack.Insert(index, value);
+            stack.Pop();
         }
     }
 }

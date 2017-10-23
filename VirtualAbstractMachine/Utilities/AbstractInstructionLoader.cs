@@ -5,6 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VirtualAbstractMachine.VAM.Instructions;
+using VirtualAbstractMachine.VAM.Instructions.Arithmetics;
+using VirtualAbstractMachine.VAM.Instructions.Procedures;
+using VirtualAbstractMachine.VAM.Instructions.Storage;
 
 namespace VirtualAbstractMachine.Utilities
 {
@@ -23,7 +26,8 @@ namespace VirtualAbstractMachine.Utilities
                 { "store", typeof(Store) },
                 { "sub", typeof(Sub) },
                 { "neg", typeof(Neg) },
-                { "nop", typeof(Nop) }
+                { "nop", typeof(Nop) },
+                { "jump", typeof(Jump) }
             };
         }
         public abstract InstructionList Load();

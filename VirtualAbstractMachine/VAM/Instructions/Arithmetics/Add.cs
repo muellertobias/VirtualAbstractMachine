@@ -8,7 +8,7 @@ namespace VirtualAbstractMachine.VAM.Instructions.Arithmetics
 {
     public class Add : IInstruction
     {
-        public void Execute(Stack stack)
+        public void Execute(Stack stack, int instructionIndex)
         {
             var b = stack.Pop();
             var a = stack.Pop();

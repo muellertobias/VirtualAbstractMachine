@@ -28,14 +28,28 @@ namespace VirtualAbstractMachine.Utilities
                 if (!string.IsNullOrWhiteSpace(line))
                 {
                     string[] tokens = line.Split(' ');
-                    string key = tokens.First().Replace("\r", "").Replace("\n", "");
+
+                    string label = null;
+                    if (tokens.First().EndsWith(":"))
+                    {
+                        label = tokens.First().Remove(tokens.First().Length - 1);
+                        tokens = tokens.Skip(1).ToArray();
+                    }
+                    //string key = tokens.First().Replace("\r", "").Replace("\n", "");
+                    string key = tokens.First().Trim();
                     var type = InstructionSet[key];
                     string[] args = null;
                     if (tokens.Length > 1)
                     {
                         args = tokens.Skip(1).ToArray();
                     }
-                    instructions.Add((IInstruction)Activator.CreateInstance(type, args));
+
+                    IInstruction instruction = (IInstruction)Activator.CreateInstance(type, args);
+
+                    if (label == null)
+                        instructions.Add(instruction);
+                    else
+                        instructions.Add(instruction, label);
                 }
             }
 

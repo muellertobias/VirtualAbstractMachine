@@ -49,12 +49,16 @@
     <Compile Include="Utilities\StringInstructionLoader.cs" />
     <Compile Include="VAM\Instructions\Arithmetics\Add.cs" />
     <Compile Include="VAM\Instructions\Arithmetics\Div.cs" />
+    <Compile Include="VAM\Instructions\Procedures\Dub.cs" />
+    <Compile Include="VAM\Instructions\Procedures\Halt.cs" />
     <Compile Include="VAM\Instructions\IInstruction.cs" />
     <Compile Include="VAM\Instructions\InstructionList.cs" />
+    <Compile Include="VAM\Instructions\Procedures\Jump.cs" />
+    <Compile Include="VAM\Instructions\Procedures\Pop.cs" />
     <Compile Include="VAM\Instructions\Storage\Loadc.cs" />
     <Compile Include="VAM\Instructions\Arithmetics\Mul.cs" />
     <Compile Include="VAM\Instructions\Arithmetics\Neg.cs" />
-    <Compile Include="VAM\Instructions\Nop.cs" />
+    <Compile Include="VAM\Instructions\Procedures\Nop.cs" />
     <Compile Include="VAM\Instructions\Storage\Store.cs" />
     <Compile Include="VAM\Instructions\Arithmetics\Sub.cs" />
     <Compile Include="VAM\VirtualMachine.cs" />

@@ -20,7 +20,7 @@ namespace VirtualAbstractMachine.VAM.Instructions.Storage
             _value = Convert.ToDecimal(args);
         }
 
-        public void Execute(Stack stack)
+        public void Execute(Stack stack, int instructionIndex)
         {
             stack.Push(_value);
         }
@@ -28,9 +28,9 @@ namespace VirtualAbstractMachine.VAM.Instructions.Storage
 
     public class Load : IInstruction
     {
-        public void Execute(Stack stack)
+        public void Execute(Stack stack, int instructionIndex)
         {
-            var index = stack.Pop();
+            var index = (int)stack.Pop();
             var value = stack[index];
             stack.Push(value);
         }
@@ -50,7 +50,7 @@ namespace VirtualAbstractMachine.VAM.Instructions.Storage
             _index = Convert.ToInt32(args);
         }
 
-        public void Execute(Stack stack)
+        public void Execute(Stack stack, int instructionIndex)
         {
             var value = stack[_index];
             stack.Push(value);

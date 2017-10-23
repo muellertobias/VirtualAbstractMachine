@@ -2,7 +2,7 @@
 {
     public class Neg : IInstruction
     {
-        public void Execute(Stack stack)
+        public void Execute(Stack stack, int instructionIndex)
         {
             var a = stack.Pop();
             stack.Push(-a);

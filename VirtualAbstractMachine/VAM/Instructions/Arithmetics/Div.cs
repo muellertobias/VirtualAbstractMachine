@@ -2,7 +2,7 @@
 {
     public class Div : IInstruction
     {
-        public void Execute(Stack stack)
+        public void Execute(Stack stack, int instructionIndex)
         {
             var a = stack.Pop();
             var b = stack.Pop();

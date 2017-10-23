@@ -31,24 +31,18 @@ namespace VirtualAbstractMachine.VAM
 
         public bool Run()
         {
-            //while (_instructionIndex >= 0) // TODO 
-            //{
-            //    _instructionIndex++;
-            //    _instructions[_instructionIndex].Execute(_stack, _instructionIndex);
-            //}
-
-            for (int i = 0; i < _instructions.Count; i++)
+            try
             {
-                try
+                while (_instructionIndex >= 0) // TODO 
                 {
-                    // TODO i an Instrution übergeben
-                    _instructions[i].Execute(_stack);
-
+                    var instruction = _instructions[_instructionIndex];
+                    _instructionIndex++;
+                    instruction.Execute(_stack, _instructionIndex);
                 }
-                catch
-                {
-                    return false;
-                }
+            }
+            catch
+            {
+                return false;
             }
             return true;
         }
@@ -57,8 +51,10 @@ namespace VirtualAbstractMachine.VAM
         {
             if (_instructionIndex < _instructions.Count)
             {
-                _instructions[_instructionIndex].Execute(_stack);
+                var instruction = _instructions[_instructionIndex];
                 _instructionIndex++;
+                instruction.Execute(_stack, _instructionIndex);
+
                 return true;
             }
             return false;
