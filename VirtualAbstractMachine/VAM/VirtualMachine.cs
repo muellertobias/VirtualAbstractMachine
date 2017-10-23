@@ -31,10 +31,17 @@ namespace VirtualAbstractMachine.VAM
 
         public bool Run()
         {
+            //while (_instructionIndex >= 0) // TODO 
+            //{
+            //    _instructionIndex++;
+            //    _instructions[_instructionIndex].Execute(_stack, _instructionIndex);
+            //}
+
             for (int i = 0; i < _instructions.Count; i++)
             {
                 try
                 {
+                    // TODO i an Instrution übergeben
                     _instructions[i].Execute(_stack);
 
                 }

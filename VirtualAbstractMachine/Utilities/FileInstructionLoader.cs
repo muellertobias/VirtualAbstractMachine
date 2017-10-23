@@ -10,7 +10,7 @@ namespace VirtualAbstractMachine.Utilities
 {
     public class FileInstructionLoader : AbstractInstructionLoader
     {
-        private string _filename;
+        private string _filename; // TODO als Datenende *.cma
 
         public FileInstructionLoader() 
             : this(string.Empty) { }

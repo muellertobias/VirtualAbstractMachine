@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VirtualAbstractMachine.VAM.Instructions
+namespace VirtualAbstractMachine.VAM.Instructions.Storage
 {
     public class Store : IInstruction
     {

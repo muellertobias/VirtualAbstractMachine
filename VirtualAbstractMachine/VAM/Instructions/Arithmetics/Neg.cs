@@ -1,4 +1,4 @@
-﻿namespace VirtualAbstractMachine.VAM.Instructions
+﻿namespace VirtualAbstractMachine.VAM.Instructions.Arithmetics
 {
     public class Neg : IInstruction
     {

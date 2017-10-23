@@ -1,12 +1,12 @@
-﻿namespace VirtualAbstractMachine.VAM.Instructions
+﻿namespace VirtualAbstractMachine.VAM.Instructions.Arithmetics
 {
-    public class Div : IInstruction
+    public class Sub : IInstruction
     {
         public void Execute(Stack stack)
         {
             var a = stack.Pop();
             var b = stack.Pop();
-            stack.Push(a / b);
+            stack.Push(b - a);
         }
     }
 }

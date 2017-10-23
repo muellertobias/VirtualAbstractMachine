@@ -10,6 +10,12 @@ namespace VirtualAbstractMachine.VAM
     {
         private List<decimal> _stack;
 
+        public decimal this[int index]
+        {
+            get { return _stack[index]; }
+            set { _stack[index] = value; }
+        }
+
         public Stack()
         {
             _stack = new List<decimal>();
