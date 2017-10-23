@@ -2,16 +2,16 @@
 
 namespace VirtualAbstractMachine.VAM.Instructions.Storage
 {
-    public class Loada : IInstruction
+    public class LoadAddress : IInstruction
     {
         private int _index;
 
-        public Loada(int index)
+        public LoadAddress(int index)
         {
             _index = index;
         }
 
-        public Loada(object args)
+        public LoadAddress(object args)
         {
             _index = Convert.ToInt32(args);
         }

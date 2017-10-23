@@ -1,6 +1,6 @@
 ﻿namespace VirtualAbstractMachine.VAM.Instructions.Arithmetics
 {
-    public class Div : IInstruction
+    public class Division : IInstruction
     {
         public void Execute(IContext context)
         {

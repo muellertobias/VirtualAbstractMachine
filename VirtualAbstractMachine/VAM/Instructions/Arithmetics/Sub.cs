@@ -1,6 +1,6 @@
 ﻿namespace VirtualAbstractMachine.VAM.Instructions.Arithmetics
 {
-    public class Sub : IInstruction
+    public class Substraction : IInstruction
     {
         public void Execute(IContext context)
         {

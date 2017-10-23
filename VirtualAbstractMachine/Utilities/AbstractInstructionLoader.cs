@@ -23,26 +23,26 @@ namespace VirtualAbstractMachine.Utilities
             {
                 #region Storage
                 { "load", typeof(Load) },
-                { "loada", typeof(Loada) },
-                { "loadc", typeof(Loadc) },
+                { "loada", typeof(LoadAddress) },
+                { "loadc", typeof(LoadConstant) },
                 { "store", typeof(Store) },
                 #endregion
 
                 #region Arithmetics
-                { "add", typeof(Add) },
-                { "div", typeof(Div) },
-                { "mul", typeof(Mul) },
-                { "sub", typeof(Sub) },
-                { "neg", typeof(Neg) },
+                { "add", typeof(Addition) },
+                { "div", typeof(Division) },
+                { "mul", typeof(Multiplication) },
+                { "sub", typeof(Substraction) },
+                { "neg", typeof(Negation) },
                 #endregion
 
                 #region Procedures
-                { "dub", typeof(Dub) },
+                { "dub", typeof(Dublication) },
                 { "pop", typeof(Pop) },
                 { "jump", typeof(Jump) },
-                { "jumpz", typeof(Jumpz) },
+                { "jumpz", typeof(JumpOnZero) },
                 { "halt", typeof(Halt) },
-                { "nop", typeof(Nop) },
+                { "nop", typeof(NoOperation) },
                 #endregion
 
                 #region Comparsion

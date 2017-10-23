@@ -1,6 +1,6 @@
 ﻿namespace VirtualAbstractMachine.VAM.Instructions.Procedures
 {
-    public class Dub : IInstruction
+    public class Dublication : IInstruction
     {
         public void Execute(IContext context)
         {

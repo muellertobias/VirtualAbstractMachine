@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VirtualAbstractMachine.VAM.Instructions.Arithmetics
 {
-    public class Add : IInstruction
+    public class Addition : IInstruction
     {
         public void Execute(IContext context)
         {

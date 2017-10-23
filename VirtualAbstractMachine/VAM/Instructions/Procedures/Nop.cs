@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VirtualAbstractMachine.VAM.Instructions.Procedures
 {
-    public class Nop : IInstruction
+    public class NoOperation : IInstruction
     {
         public void Execute(IContext context)
         {

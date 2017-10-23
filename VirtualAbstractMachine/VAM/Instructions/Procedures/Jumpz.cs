@@ -1,10 +1,10 @@
 ﻿namespace VirtualAbstractMachine.VAM.Instructions.Procedures
 {
-    public class Jumpz : IInstruction
+    public class JumpOnZero : IInstruction
     {
         protected string _label;
 
-        public Jumpz(object args)
+        public JumpOnZero(object args)
         {
             _label = args.ToString();
         }

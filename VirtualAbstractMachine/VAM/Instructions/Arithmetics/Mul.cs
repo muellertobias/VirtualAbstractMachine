@@ -1,6 +1,6 @@
 ﻿namespace VirtualAbstractMachine.VAM.Instructions.Arithmetics
 {
-    public class Mul : IInstruction
+    public class Multiplication : IInstruction
     {
         public void Execute(IContext context)
         {

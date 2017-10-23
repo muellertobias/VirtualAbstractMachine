@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace VirtualAbstractMachine.VAM.Instructions.Storage
 {
-    public class Loadc : IInstruction
+    public class LoadConstant : IInstruction
     {
         private decimal _value;
 
-        public Loadc(decimal value)
+        public LoadConstant(decimal value)
         {
             _value = value;
         }
 
-        public Loadc(object args)
+        public LoadConstant(object args)
         {
             _value = Convert.ToDecimal(args);
         }

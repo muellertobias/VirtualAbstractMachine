@@ -1,6 +1,6 @@
 ﻿namespace VirtualAbstractMachine.VAM.Instructions.Arithmetics
 {
-    public class Neg : IInstruction
+    public class Negation : IInstruction
     {
         public void Execute(IContext context)
         {
