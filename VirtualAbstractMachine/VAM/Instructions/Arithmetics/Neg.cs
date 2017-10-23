@@ -2,10 +2,10 @@
 {
     public class Neg : IInstruction
     {
-        public void Execute(Stack stack, InstructionLabels labels, ref int instructionIndex)
+        public void Execute(IContext context)
         {
-            var a = stack.Pop();
-            stack.Push(-a);
+            var a = context.Stack.Pop();
+            context.Stack.Push(-a);
         }
     }
 }

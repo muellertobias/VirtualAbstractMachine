@@ -2,11 +2,11 @@
 {
     public class Sub : IInstruction
     {
-        public void Execute(Stack stack, InstructionLabels labels, ref int instructionIndex)
+        public void Execute(IContext context)
         {
-            var a = stack.Pop();
-            var b = stack.Pop();
-            stack.Push(b - a);
+            var a = context.Stack.Pop();
+            var b = context.Stack.Pop();
+            context.Stack.Push(b - a);
         }
     }
 }

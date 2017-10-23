@@ -8,9 +8,9 @@ namespace VirtualAbstractMachine.VAM.Instructions.Procedures
 {
     public class Pop : IInstruction
     {
-        public void Execute(Stack stack, InstructionLabels labels, ref int instructionIndex)
+        public void Execute(IContext context)
         {
-            stack.Pop();
+            context.Stack.Pop();
         }
     }
 }

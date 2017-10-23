@@ -8,6 +8,6 @@ namespace VirtualAbstractMachine.VAM.Instructions
 {
     public interface IInstruction
     {
-        void Execute(Stack stack, InstructionLabels labels, ref int instructionIndex);
+        void Execute(IContext context);
     }
 }

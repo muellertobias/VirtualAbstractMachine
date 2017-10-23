@@ -8,11 +8,11 @@ namespace VirtualAbstractMachine.VAM.Instructions.Arithmetics
 {
     public class Add : IInstruction
     {
-        public void Execute(Stack stack, InstructionLabels labels, ref int instructionIndex)
+        public void Execute(IContext context)
         {
-            var b = stack.Pop();
-            var a = stack.Pop();
-            stack.Push(a + b);
+            var b = context.Stack.Pop();
+            var a = context.Stack.Pop();
+            context.Stack.Push(a + b);
         }
     }
 }

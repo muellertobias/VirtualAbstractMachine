@@ -15,29 +15,9 @@ namespace VirtualAbstractMachine.VAM.Instructions.Procedures
             _label = args.ToString();
         }
 
-        public void Execute(Stack stack, InstructionLabels labels, ref int instructionIndex)
+        public void Execute(IContext context)
         {
-            instructionIndex = labels[_label];
+            context.InstructionIndex = context.Instructions.InstructionLabels[_label];
         }
-    }
-
-    public class Jumpz : IInstruction
-    {
-        protected string _label;
-
-        public Jumpz(object args)
-        {
-            _label = args.ToString();
-        }
-
-        public void Execute(Stack stack, InstructionLabels labels, ref int instructionIndex)
-        {
-            var value = stack.Pop();
-            if (value == 0m)
-                instructionIndex = labels[_label];
-
-            stack.Push(value);
-        }
-
     }
 }

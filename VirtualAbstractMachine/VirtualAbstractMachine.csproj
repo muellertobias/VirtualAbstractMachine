@@ -47,6 +47,7 @@
     <Compile Include="Utilities\AbstractInstructionLoader.cs" />
     <Compile Include="Utilities\FileInstructionLoader.cs" />
     <Compile Include="Utilities\StringInstructionLoader.cs" />
+    <Compile Include="VAM\IContext.cs" />
     <Compile Include="VAM\Instructions\Arithmetics\Add.cs" />
     <Compile Include="VAM\Instructions\Arithmetics\Div.cs" />
     <Compile Include="VAM\Instructions\Procedures\Dub.cs" />
@@ -54,7 +55,10 @@
     <Compile Include="VAM\Instructions\IInstruction.cs" />
     <Compile Include="VAM\Instructions\InstructionList.cs" />
     <Compile Include="VAM\Instructions\Procedures\Jump.cs" />
+    <Compile Include="VAM\Instructions\Procedures\Jumpz.cs" />
     <Compile Include="VAM\Instructions\Procedures\Pop.cs" />
+    <Compile Include="VAM\Instructions\Storage\Load.cs" />
+    <Compile Include="VAM\Instructions\Storage\Loada.cs" />
     <Compile Include="VAM\Instructions\Storage\Loadc.cs" />
     <Compile Include="VAM\Instructions\Arithmetics\Mul.cs" />
     <Compile Include="VAM\Instructions\Arithmetics\Neg.cs" />
