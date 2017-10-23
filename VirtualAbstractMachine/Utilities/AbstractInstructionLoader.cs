@@ -27,7 +27,8 @@ namespace VirtualAbstractMachine.Utilities
                 { "sub", typeof(Sub) },
                 { "neg", typeof(Neg) },
                 { "nop", typeof(Nop) },
-                { "jump", typeof(Jump) }
+                { "jump", typeof(Jump) },
+                { "jumpz", typeof(Jumpz) }
             };
         }
         public abstract InstructionList Load();

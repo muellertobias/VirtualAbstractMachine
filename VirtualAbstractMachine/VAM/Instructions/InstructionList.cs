@@ -6,24 +6,26 @@ using System.Threading.Tasks;
 
 namespace VirtualAbstractMachine.VAM.Instructions
 {
+    public sealed class InstructionLabels : Dictionary<string, int> { }
+
     public sealed class InstructionList : List<IInstruction>
     {
-        private Dictionary<string, int> _labels;
+        public InstructionLabels InstructionLabels { get; private set; }
 
         public InstructionList()
         {
-            _labels = new Dictionary<string, int>();
+            InstructionLabels = new InstructionLabels();
         }
 
         public int GetInstructionIndex(string label)
         {
-            return _labels[label];
+            return InstructionLabels[label];
         }
 
         public void Add(IInstruction instruction, string label)
         {
-            this.Add(instruction);
-            _labels.Add(label, this.Count - 1);
+            Add(instruction);
+            InstructionLabels.Add(label, Count - 1);
         }
     }
 }

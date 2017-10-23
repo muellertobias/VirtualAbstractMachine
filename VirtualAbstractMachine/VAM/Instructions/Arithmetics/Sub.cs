@@ -2,7 +2,7 @@
 {
     public class Sub : IInstruction
     {
-        public void Execute(Stack stack, int instructionIndex)
+        public void Execute(Stack stack, InstructionLabels labels, ref int instructionIndex)
         {
             var a = stack.Pop();
             var b = stack.Pop();

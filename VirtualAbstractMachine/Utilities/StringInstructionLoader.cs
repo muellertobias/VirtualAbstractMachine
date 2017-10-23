@@ -42,6 +42,10 @@ namespace VirtualAbstractMachine.Utilities
                     if (tokens.Length > 1)
                     {
                         args = tokens.Skip(1).ToArray();
+                        for (int i = 0; i < args.Length; i++)
+                        {
+                            args[i] = args[i].TrimEnd('\r');
+                        }
                     }
 
                     IInstruction instruction = (IInstruction)Activator.CreateInstance(type, args);

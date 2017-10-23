@@ -33,15 +33,15 @@ namespace VirtualAbstractMachine.VAM
         {
             try
             {
-                while (_instructionIndex >= 0) // TODO 
+                while (_instructionIndex >= 0 && _instructionIndex < _instructions.Count) // TODO 
                 {
                     var instruction = _instructions[_instructionIndex];
                     _instructionIndex++;
-                    instruction.Execute(_stack, _instructionIndex);
+                    instruction.Execute(_stack, _instructions.InstructionLabels, ref _instructionIndex);
                 }
             }
-            catch
-            {
+            catch (Exception e)
+            { 
                 return false;
             }
             return true;
@@ -53,7 +53,7 @@ namespace VirtualAbstractMachine.VAM
             {
                 var instruction = _instructions[_instructionIndex];
                 _instructionIndex++;
-                instruction.Execute(_stack, _instructionIndex);
+                instruction.Execute(_stack, _instructions.InstructionLabels, ref _instructionIndex);
 
                 return true;
             }

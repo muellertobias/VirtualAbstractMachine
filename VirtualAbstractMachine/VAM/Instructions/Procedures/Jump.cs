@@ -8,16 +8,36 @@ namespace VirtualAbstractMachine.VAM.Instructions.Procedures
 {
     public class Jump : IInstruction
     {
-        private string _label;
+        protected string _label;
 
         public Jump(object args)
         {
             _label = args.ToString();
         }
 
-        public void Execute(Stack stack, int instructionIndex)
+        public void Execute(Stack stack, InstructionLabels labels, ref int instructionIndex)
         {
-            //instructionIndex = // TODO Zugriff auf die Labels also InstructionsList
+            instructionIndex = labels[_label];
         }
+    }
+
+    public class Jumpz : IInstruction
+    {
+        protected string _label;
+
+        public Jumpz(object args)
+        {
+            _label = args.ToString();
+        }
+
+        public void Execute(Stack stack, InstructionLabels labels, ref int instructionIndex)
+        {
+            var value = stack.Pop();
+            if (value == 0m)
+                instructionIndex = labels[_label];
+
+            stack.Push(value);
+        }
+
     }
 }
