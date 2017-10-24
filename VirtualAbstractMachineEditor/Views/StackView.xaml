@@ -13,17 +13,25 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <ItemsControl ItemsSource="{Binding StackContent}" VerticalAlignment="Bottom" Grid.Column="1">
+        <ItemsControl ItemsSource="{Binding StackContent}" VerticalAlignment="Bottom" Grid.Column="1" AlternationCount="1000">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="Black" BorderThickness="1" Background="LightBlue">
-                        <TextBlock Text="{Binding}" HorizontalAlignment="Center"/>
-                    </Border>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Number, 
+                                          StringFormat={}{0}:}"/>
+                        <Border BorderBrush="Black" BorderThickness="1" Background="LightBlue" Grid.Column="1">
+                            <TextBlock Text="{Binding Payload}" HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel Orientation="Vertical" />
+                    <StackPanel VerticalAlignment="Bottom" Orientation="Vertical" />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>

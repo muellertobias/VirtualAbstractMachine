@@ -9,6 +9,7 @@ using VirtualAbstractMachine.VAM.Instructions.Arithmetics;
 using VirtualAbstractMachine.VAM.Instructions.Comparsion;
 using VirtualAbstractMachine.VAM.Instructions.Logics;
 using VirtualAbstractMachine.VAM.Instructions.Procedures;
+using VirtualAbstractMachine.VAM.Instructions.Setup;
 using VirtualAbstractMachine.VAM.Instructions.Storage;
 
 namespace VirtualAbstractMachine.Utilities
@@ -58,7 +59,12 @@ namespace VirtualAbstractMachine.Utilities
                 { "and", typeof(And) },
                 { "not", typeof(Not) },
                 { "or", typeof(Or) },
-                { "xor", typeof(Xor) }
+                { "xor", typeof(Xor) },
+                #endregion
+
+                #region Setup
+                { "enter", typeof(Enter) },
+                { "alloc", typeof(Alloc) }
                 #endregion
             };
         }

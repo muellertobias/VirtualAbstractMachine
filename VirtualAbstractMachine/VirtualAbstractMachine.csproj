@@ -69,6 +69,8 @@
     <Compile Include="VAM\Instructions\Procedures\Jump.cs" />
     <Compile Include="VAM\Instructions\Procedures\Jumpz.cs" />
     <Compile Include="VAM\Instructions\Procedures\Pop.cs" />
+    <Compile Include="VAM\Instructions\Setup\Alloc.cs" />
+    <Compile Include="VAM\Instructions\Setup\Enter.cs" />
     <Compile Include="VAM\Instructions\Storage\Load.cs" />
     <Compile Include="VAM\Instructions\Storage\Loada.cs" />
     <Compile Include="VAM\Instructions\Storage\Loadc.cs" />

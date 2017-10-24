@@ -8,6 +8,12 @@ using VirtualAbstractMachineEditor.Utilities;
 
 namespace VirtualAbstractMachineEditor.ViewModels
 {
+    public sealed class Content
+    {
+        public int Number { get; set; }
+        public string Payload { get; set; }
+    }
+
     public class StackViewModel : ViewModelBase
     {
         private int _maximumStackSize;
@@ -20,8 +26,8 @@ namespace VirtualAbstractMachineEditor.ViewModels
                 OnPropertyChanged();
             }
         }
-        private ObservableCollection<string> _stackContent;
-        public ObservableCollection<string> StackContent
+        private ObservableCollection<Content> _stackContent;
+        public ObservableCollection<Content> StackContent
         {
             get => _stackContent;
             private set => _stackContent = value;
@@ -29,7 +35,7 @@ namespace VirtualAbstractMachineEditor.ViewModels
 
         public StackViewModel(INotifyOnInstructionsFinished notifier)
         {
-            StackContent = new ObservableCollection<string>();
+            StackContent = new ObservableCollection<Content>();
             notifier.InstructionsFinished += OnInstructionsFinished;
         }
 
@@ -37,16 +43,18 @@ namespace VirtualAbstractMachineEditor.ViewModels
         {
             StackContent.Clear();
 
+            var stack = e.StackContent;
+
             if (e.Successfully)
             {
-                foreach (string s in e.StackContent)
+                for (int i = stack.Count - 1; i >= 0; i--)
                 {
-                    StackContent.Add(s);
+                    StackContent.Add(new Content() { Number =  i, Payload = stack[i] });
                 }
             }
             else
             {
-                StackContent.Add("ERROR");
+                StackContent.Add(new Content() { Number = 0, Payload = "ERROR" });
             }
         }
     }
