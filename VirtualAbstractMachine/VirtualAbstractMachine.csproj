@@ -46,6 +46,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\AbstractInstructionLoader.cs" />
     <Compile Include="Utilities\FileInstructionLoader.cs" />
+    <Compile Include="Utilities\StackLoader\AbstractStackLoader.cs" />
+    <Compile Include="Utilities\StackLoader\StringStackLoader.cs" />
     <Compile Include="Utilities\StringInstructionLoader.cs" />
     <Compile Include="VAM\IContext.cs" />
     <Compile Include="VAM\Instructions\Arithmetics\Add.cs" />
