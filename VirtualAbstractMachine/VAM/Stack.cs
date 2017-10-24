@@ -48,7 +48,7 @@ namespace VirtualAbstractMachine.VAM
         {
             var copy = new decimal[_stack.Count];
             _stack.CopyTo(copy);
-            return copy;
+            return copy.Reverse().ToArray();
         }
 
         public void Reset()
