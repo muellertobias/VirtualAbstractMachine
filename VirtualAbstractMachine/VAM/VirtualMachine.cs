@@ -7,25 +7,25 @@ using VirtualAbstractMachine.VAM.Instructions;
 
 namespace VirtualAbstractMachine.VAM
 {
-    public class VirtualMachine
+    public class VirtualMachine : IContext
     {
-        private int _instructionIndex;
-        private InstructionList _instructions;
-        private Stack _stack;
+        public int InstructionIndex { get; set; }
+        public InstructionList Instructions { get; set; }
+        public Stack Stack { get; set; }
 
         public VirtualMachine() 
             : this(new InstructionList() { }) { }
 
         public VirtualMachine(InstructionList instructions)
         {
-            _instructions = instructions ?? throw new ArgumentNullException("instructions");
-            _stack = new Stack();
-            _instructionIndex = 0;
+            Instructions = instructions ?? throw new ArgumentNullException("instructions");
+            Stack = new Stack();
+            InstructionIndex = 0;
         }
 
         public void Setup(InstructionList instructions)
         {
-            _instructions = instructions;
+            Instructions = instructions;
             Reset();
         }
 
@@ -33,11 +33,11 @@ namespace VirtualAbstractMachine.VAM
         {
             try
             {
-                while (_instructionIndex >= 0 && _instructionIndex < _instructions.Count) // TODO 
+                while (InstructionIndex >= 0 && InstructionIndex < Instructions.Count) // TODO 
                 {
-                    var instruction = _instructions[_instructionIndex];
-                    _instructionIndex++;
-                    instruction.Execute(_stack, _instructions.InstructionLabels, ref _instructionIndex);
+                    var instruction = Instructions[InstructionIndex];
+                    InstructionIndex++;
+                    instruction.Execute(this);
                 }
             }
             catch (Exception e)
@@ -49,11 +49,11 @@ namespace VirtualAbstractMachine.VAM
 
         public bool Step()
         {
-            if (_instructionIndex < _instructions.Count)
+            if (InstructionIndex < Instructions.Count)
             {
-                var instruction = _instructions[_instructionIndex];
-                _instructionIndex++;
-                instruction.Execute(_stack, _instructions.InstructionLabels, ref _instructionIndex);
+                var instruction = Instructions[InstructionIndex];
+                InstructionIndex++;
+                instruction.Execute(this);
 
                 return true;
             }
@@ -62,15 +62,15 @@ namespace VirtualAbstractMachine.VAM
 
         public void Reset()
         {
-            _stack.Reset();
-            _instructionIndex = 0;
+            Stack.Reset();
+            InstructionIndex = 0;
         }
 
         public List<string> GetStackContent()
         {
             List<string> content = new List<string>();
 
-            foreach (var v in _stack.AsArray())
+            foreach (var v in Stack.AsArray())
             {
                 content.Add(v.ToString());
             }

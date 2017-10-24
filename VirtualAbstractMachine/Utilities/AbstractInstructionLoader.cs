@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using VirtualAbstractMachine.VAM.Instructions;
 using VirtualAbstractMachine.VAM.Instructions.Arithmetics;
+using VirtualAbstractMachine.VAM.Instructions.Comparsion;
+using VirtualAbstractMachine.VAM.Instructions.Logics;
 using VirtualAbstractMachine.VAM.Instructions.Procedures;
 using VirtualAbstractMachine.VAM.Instructions.Storage;
 
@@ -19,16 +21,45 @@ namespace VirtualAbstractMachine.Utilities
         {
             InstructionSet = new Dictionary<string, Type>
             {
-                { "loadc", typeof(Loadc) },
-                { "add", typeof(Add) },
-                { "div", typeof(Div) },
-                { "mul", typeof(Mul) },
+                #region Storage
+                { "load", typeof(Load) },
+                { "loada", typeof(LoadAddress) },
+                { "loadc", typeof(LoadConstant) },
                 { "store", typeof(Store) },
-                { "sub", typeof(Sub) },
-                { "neg", typeof(Neg) },
-                { "nop", typeof(Nop) },
+                #endregion
+
+                #region Arithmetics
+                { "add", typeof(Addition) },
+                { "div", typeof(Division) },
+                { "mul", typeof(Multiplication) },
+                { "sub", typeof(Substraction) },
+                { "neg", typeof(Negation) },
+                #endregion
+
+                #region Procedures
+                { "dub", typeof(Dublication) },
+                { "pop", typeof(Pop) },
                 { "jump", typeof(Jump) },
-                { "jumpz", typeof(Jumpz) }
+                { "jumpz", typeof(JumpOnZero) },
+                { "halt", typeof(Halt) },
+                { "nop", typeof(NoOperation) },
+                #endregion
+
+                #region Comparsion
+                { "eq", typeof(Equal) },
+                { "neq", typeof(NotEqual) },
+                { "leq", typeof(LessEqual) },
+                { "geq", typeof(GreaterEqual) },
+                { "le", typeof(Less) },
+                { "ge", typeof(Greater) },
+                #endregion
+
+                #region Logics
+                { "and", typeof(And) },
+                { "not", typeof(Not) },
+                { "or", typeof(Or) },
+                { "xor", typeof(Xor) }
+                #endregion
             };
         }
         public abstract InstructionList Load();

@@ -1,12 +1,12 @@
 ﻿namespace VirtualAbstractMachine.VAM.Instructions.Procedures
 {
-    public class Dub : IInstruction
+    public class Dublication : IInstruction
     {
-        public void Execute(Stack stack, InstructionLabels labels, ref int instructionIndex)
+        public void Execute(IContext context)
         {
-            var value = stack.Pop();
-            stack.Push(value);
-            stack.Push(value);
+            var value = context.Stack.Pop();
+            context.Stack.Push(value);
+            context.Stack.Push(value);
         }
     }
 }

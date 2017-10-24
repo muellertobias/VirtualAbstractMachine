@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VirtualAbstractMachine.VAM.Instructions.Procedures
+namespace VirtualAbstractMachine.VAM.Instructions.Logics
 {
-    public class Halt : IInstruction
+    public class Not : IInstruction
     {
         public void Execute(IContext context)
         {
-            throw new NotImplementedException();
+            var a = (int)context.Stack.Pop();
+            context.Stack.Push(~a);
         }
     }
 }

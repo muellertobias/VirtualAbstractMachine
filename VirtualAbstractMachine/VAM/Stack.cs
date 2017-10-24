@@ -8,6 +8,11 @@ namespace VirtualAbstractMachine.VAM
 {
     public class Stack
     {
+        public int Count
+        {
+            get => _stack.Count;
+        }
+
         private List<decimal> _stack;
 
         public decimal this[int index]
@@ -32,11 +37,6 @@ namespace VirtualAbstractMachine.VAM
         public void Push(decimal value)
         {
             _stack.Add(value);
-        }
-
-        public bool IsEmpty()
-        {
-            return _stack.Count == 0;
         }
 
         public void Insert(int index, decimal value)
