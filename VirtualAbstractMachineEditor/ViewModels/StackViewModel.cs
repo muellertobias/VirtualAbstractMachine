@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,30 +10,44 @@ namespace VirtualAbstractMachineEditor.ViewModels
 {
     public class StackViewModel : ViewModelBase
     {
-        private string _stackContent;
-        public string StackContent
+        private int _maximumStackSize;
+        public int MaximumStackSize
         {
-            get { return _stackContent; }
+            get { return _maximumStackSize; }
             private set
             {
-                _stackContent = value;
+                _maximumStackSize = value;
                 OnPropertyChanged();
             }
+        }
+        private ObservableCollection<string> _stackContent;
+        public ObservableCollection<string> StackContent
+        {
+            get => _stackContent;
+            private set => _stackContent = value;
         }
 
         public StackViewModel(INotifyOnInstructionsFinished notifier)
         {
+            StackContent = new ObservableCollection<string>();
             notifier.InstructionsFinished += OnInstructionsFinished;
         }
 
         private void OnInstructionsFinished(object sender, InstructionsFinishedEventArgs e)
         {
-            StringBuilder builder = new StringBuilder();
-            foreach (string s in e.StackContent)
+            StackContent.Clear();
+
+            if (e.Successfully)
             {
-                builder.AppendFormat("{0}\n", s);
+                foreach (string s in e.StackContent)
+                {
+                    StackContent.Add(s);
+                }
             }
-            StackContent = builder.ToString();
+            else
+            {
+                StackContent.Add("ERROR");
+            }
         }
     }
 }

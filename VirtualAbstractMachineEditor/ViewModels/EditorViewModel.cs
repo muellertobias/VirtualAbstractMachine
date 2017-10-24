@@ -47,9 +47,18 @@ namespace VirtualAbstractMachineEditor.ViewModels
 
         private void _run()
         {
-            var instuctions = instructionLoader.Load(Text);
-            machine.Setup(instuctions);
-            bool successful = machine.Run();
+            bool successful = false;
+            try
+            {
+                var instuctions = instructionLoader.Load(Text);
+                machine.Setup(instuctions);
+
+                successful = machine.Run();
+            }
+            catch (Exception e)
+            {
+                successful = false;
+            }
             OnInstructionsFinished(successful, machine.GetStackContent());
         }
 

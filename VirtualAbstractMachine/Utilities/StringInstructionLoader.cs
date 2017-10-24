@@ -62,6 +62,10 @@ namespace VirtualAbstractMachine.Utilities
 
         public override InstructionList Load(string source)
         {
+            if (string.IsNullOrEmpty(source))
+            {
+                throw new ArgumentNullException("source");
+            }
             _instructionLines = source.Split('\n').ToList();
             return Load();
         }
