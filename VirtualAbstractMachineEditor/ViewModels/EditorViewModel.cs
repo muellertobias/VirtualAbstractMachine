@@ -49,7 +49,9 @@ namespace VirtualAbstractMachineEditor.ViewModels
         {
             var instuctions = instructionLoader.Load(Text);
             machine.Setup(instuctions);
-            bool successful = machine.Run();
+
+            bool successful = machine.Run(); // TODO Exception handling
+
             OnInstructionsFinished(successful, machine.GetStackContent());
         }
 

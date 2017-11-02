@@ -11,6 +11,8 @@ namespace VirtualAbstractMachine.Utilities.StackLoader
     {
         public override Stack Load(string source)
         {
+            throw new NotImplementedException("TODO");
+
             var lines = source.Split('\n').ToList();
 
             Stack stack = new Stack();
@@ -21,12 +23,8 @@ namespace VirtualAbstractMachine.Utilities.StackLoader
                 {
                     // p(x) = 1
                     var s = line.Split('=');
-                    int pointer = Convert.ToInt32(s.Last());
+                    int value = Convert.ToInt32(s.Last());
 
-                    if (stack.Count - 1 < pointer)
-                    {
-
-                    }
                 }
                 else
                 {

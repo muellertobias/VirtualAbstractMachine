@@ -45,6 +45,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\AbstractInstructionLoader.cs" />
+    <Compile Include="Utilities\Exceptions\VAMException.cs" />
     <Compile Include="Utilities\FileInstructionLoader.cs" />
     <Compile Include="Utilities\StackLoader\AbstractStackLoader.cs" />
     <Compile Include="Utilities\StackLoader\StringStackLoader.cs" />

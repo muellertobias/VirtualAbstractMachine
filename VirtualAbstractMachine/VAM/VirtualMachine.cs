@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VirtualAbstractMachine.Utilities.Exceptions;
 using VirtualAbstractMachine.VAM.Instructions;
 
 namespace VirtualAbstractMachine.VAM
@@ -33,7 +34,7 @@ namespace VirtualAbstractMachine.VAM
         {
             try
             {
-                while (InstructionIndex >= 0 && InstructionIndex < Instructions.Count) // TODO 
+                while (InstructionIndex >= 0 && InstructionIndex < Instructions.Count)
                 {
                     var instruction = Instructions[InstructionIndex];
                     InstructionIndex++;
@@ -41,8 +42,8 @@ namespace VirtualAbstractMachine.VAM
                 }
             }
             catch (Exception e)
-            { 
-                return false;
+            {
+                throw new VAMException(InstructionIndex - 1, "", e);
             }
             return true;
         }
