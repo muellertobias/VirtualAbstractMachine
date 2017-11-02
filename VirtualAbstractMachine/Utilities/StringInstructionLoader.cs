@@ -36,7 +36,7 @@ namespace VirtualAbstractMachine.Utilities
                         tokens = tokens.Skip(1).ToArray();
                     }
                     //string key = tokens.First().Replace("\r", "").Replace("\n", "");
-                    string key = tokens.First().Trim();
+                    string key = tokens.First().Trim().ToLowerInvariant();
                     var type = InstructionSet[key];
                     string[] args = null;
                     if (tokens.Length > 1)
@@ -62,6 +62,10 @@ namespace VirtualAbstractMachine.Utilities
 
         public override InstructionList Load(string source)
         {
+            if (string.IsNullOrEmpty(source))
+            {
+                throw new ArgumentNullException("source");
+            }
             _instructionLines = source.Split('\n').ToList();
             return Load();
         }
